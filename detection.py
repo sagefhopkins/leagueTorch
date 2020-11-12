@@ -1,11 +1,13 @@
 from detecto import core, utils, visualize
+from torchvision import transforms
+import cv2
 
 
 def trainDataset():
-    dataset = core.Dataset('C:\\Users\\sagef\\Documents\\Development\\python\\tensorLeague\\images\\Aatrox')
-    model = core.Model(['Aatrox'])
-
-    model.fit(dataset)
+    dataset = core.Dataset('images\\Ahri')
+    model = core.Model(['Aatrox', "Ahri", "Akali"])
+    model.fit(dataset, verbose=True)
+    model.save('model.pth')
 
 
 trainDataset()
